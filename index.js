@@ -5,9 +5,11 @@ const btnSubmit = document.querySelector(".btn-submit");
 const countriesBox = document.querySelector(".countries");
 let numberOfCountries;
 let countries = [];
+let countriesInfo = [];
 
 const reset = () => {
   countries = [];
+  countriesInfo = [];
 };
 
 const getCountries = (numberOfCountries) => {
@@ -26,6 +28,7 @@ const getCountries = (numberOfCountries) => {
     }
 
     setTimeout(() => {
+      getCountriesInfo(countries);
       displayCountries(countries);
       console.log(countries);
       reset();
@@ -54,3 +57,38 @@ btnSubmit.addEventListener("click", function (event) {
   numberOfCountries = formInput.value;
   getCountries(numberOfCountries);
 });
+
+// Task 2
+const getCountriesInfo = (countries) => {
+  countries.forEach((el) => {
+    let countryName;
+
+    if (el.includes(" ")) {
+      countryName = el.split(" ").join("%20");
+
+      fetch(`https://restcountries.com/v3.1/name/${countryName}`)
+        .then((response) => response.json())
+        .then((data) => console.log(...data))
+        .catch(() => {
+          countriesInfo.push({
+            name: countryName.split("%20").join(" "),
+            message: "No information found!",
+          });
+        });
+    } else {
+      fetch(`https://restcountries.com/v3.1/name/${el}`)
+        .then((response) => response.json())
+        .then((data) => console.log(...data))
+        .catch(() => {
+          countriesInfo.push({
+            name: countryName,
+            message: "No information found!",
+          });
+        });
+    }
+  });
+
+  setTimeout(() => {
+    console.log(countriesInfo);
+  }, 10000);
+};
