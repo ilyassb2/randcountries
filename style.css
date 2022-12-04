@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Familjen Grotesk", sans-serif;
+}
+
+body {
+  background-color: #faeee0;
+}
+.form-input {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  width: 450px;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px gray;
+}
+
+.form-input::-webkit-outer-spin-button,
+.form-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.map-img {
+  width: 20%;
+}
+
+.container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-countries {
+  margin-top: 30px;
+  font-size: 24px;
+}
+.country-info {
+  width: fit-content;
+  height: fit-content;
+}
+.btn-submit {
+  margin-top: 30px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px gray;
+}
+.btn-submit:hover {
+  opacity: 0.7;
+}

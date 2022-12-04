@@ -5,9 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="./index.js" defer></script>
 
     <title>RandCountries</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <img src="./images/world-map.png" class="map-img" alt="" />
+      <form>
+        <input
+          class="form-input"
+          type="number"
+          placeholder=" Enter a number ( Between 5 and 20 )"
+        />
+        <button class="btn-submit" type="submit">Submit</button>
+      </form>
+      <div class="country-info">
+        <h3 class="random-countries">Random countries 🌍 :</h3>
+        <div>
+          <ul class="countries"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
