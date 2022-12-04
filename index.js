@@ -1,7 +1,14 @@
 "use-strict";
 
-const numberOfCountries = 7;
+const formInput = document.querySelector(".form-input");
+const btnSubmit = document.querySelector(".btn-submit");
+const countriesBox = document.querySelector(".countries");
+let numberOfCountries;
 let countries = [];
+
+const reset = () => {
+  countries = [];
+};
 
 const getCountries = (numberOfCountries) => {
   if (numberOfCountries >= 5 && numberOfCountries <= 20) {
@@ -19,9 +26,31 @@ const getCountries = (numberOfCountries) => {
     }
 
     setTimeout(() => {
+      displayCountries(countries);
       console.log(countries);
+      reset();
     }, 8000);
   }
 };
 
-getCountries(numberOfCountries);
+const displayCountries = (countries) => {
+  let html;
+
+  countries.forEach((el) => {
+    html = `
+      <li>
+        ${el}
+      </li>
+    `;
+
+    countriesBox.insertAdjacentHTML("beforeend", html);
+  });
+};
+
+btnSubmit.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  countriesBox.innerHTML = "";
+  numberOfCountries = formInput.value;
+  getCountries(numberOfCountries);
+});
