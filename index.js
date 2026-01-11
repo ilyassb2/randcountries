@@ -24,7 +24,7 @@ const getCountries = (numberOfCountries) => {
             numberOfCountries++;
           }
         })
-        .catch((err) => console.log(`ERROR 💥: ${err.message}`));
+        .catch((err) => console.log(`ERROR : ${err.message}`));
     }
 
     setTimeout(() => {
